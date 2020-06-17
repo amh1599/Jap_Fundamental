@@ -7,20 +7,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">	
-<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="jquery-3.5.1.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	
-<title>진로 검사</title>
-
 <script type="text/javascript" src="jquery-3.5.1.js"></script>
-<script>
+<title>진로심리검사</title>
+
+<style>
+    .bd-footer {
+	width:100%;
+	height:200px;
+	bottom:0;
+	background:#5eaeff;
+	text-align: left;
+	color: white;
+	}
 		
+    .nav-link{
+	font-size:125%;
+	margin:0 0 8px 0;
+	color: white;
+	}
+	
+	#go{
+	margin:30px 0 30px 0;
+	}
+	
+	
+	.navbar{
+	width:100%;
+	background-color:#17d348;
+	}
+	
+	
+</style>
+    
+<script>
 		function Request(){ //Request 함수 구현
 			let requestParam = "";
 			this.getParameter = function(param){
@@ -200,45 +223,40 @@
         	});
         });
     </script>
+    
+    
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#17d348;">
+<nav class="navbar navbar-expand-md fixed-top navbar-dark">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+    	<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-		<label class="navbar-brand" href="#">진로 심리 검사</label>
-		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-		<li class="nav-item ">
-        <a class="nav-link" style="font-size:125%; margin:0 0 8px 0" href="http://localhost/Project/home.jsp">홈 <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-        <a class="nav-link" style="font-size:125%; margin:0 0 8px 0" href="#">결과</a>
-		</li>
-		</ul>
+		<label class="navbar-brand" href="#"><strong>진로 심리 검사</strong></label>
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
 		<form class="form-inline my-2 my-lg-0">
-		<a class="nav-link" style="font-size:130%; font-family:Cursive; color:white" href="https://www.kpc.or.kr/index.asp">K P C</a>
+			<a class="nav-link" href="http://localhost/Project/home.jsp"><strong>홈</strong> <span class="sr-only">(current)</span></a>
 		</form>
 	</div>
 </nav>
 
 
-<div class="container" >
-	<div class="row">
-		<div class="col-md-2" style="margin:10px 0 10px 0"></div>
-		<div class="col-md-8" style="margin:10px 0 10px 0">
+<div class="container" style="margin:70px auto;">
+	<div class="row" style="margin:0 auto;">
+		<div class="col-sm-2" ></div>
+		<div class="col-sm-8" >
 			<div id="sel"></div>
-			<button type="click" id="go">제출</button>
+			<button class="btn btn-primary col-sm-12" id="go" type="button">제출</button>
 		</div>
+		<div class="col-sm-2" ></div>
 	</div>
 </div>
 
 
-<footer class="bd-footer bg-dark text-muted">
-	<div class="container-fluid p-3 p-md-5">
-		<p>KPC 빅데이터 수업 너무 어렵다 자바는 역시 어려운거 같으니 빨리 파이썬 해서 빅데이터 다뤄보고 싶네</p>
-    	<p>항상 점심 뭐 먹을지 고민중인데 추천좀 해주세요</p>
+<footer class="bd-footer bg-dark text-muted" >
+	<div class="container-fluid p-3 p-md-5" >
+		<p> 5조 OpenApi & Crawling 프로젝트 : 후아유</p>
+    	<p>사용한 api : <a href="http://www.career.go.kr/cnet/front/openapi/openApiTestCenter.do" target="_blank" rel="license noopener">CareerNet 진로심리검사 OpenApi</a> <br> 코드 보기 : <a href="https://www.github.com/rimki/Kpc_Crawling" target="_blank" rel="license noopener">github.com/rimki/Kpc_Crawling</a></p>
 	</div>
 </footer>
 
