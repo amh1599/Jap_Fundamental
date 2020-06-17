@@ -44,32 +44,30 @@
 
 <div class="container">
    	<div class="row">
-   		<div class="col-md-1"></div>
-   		<div class="col-md-10" style="margin:10px 0 0 0">
+   		<div class="col-md-3"></div>
+   		<div class="col-md-6" style="margin:50px 0 0 0; border:2px solid #59c3fa">
  		<!-- form start -->
 			<form id= "frm" method="get" action="project.jsp" accept-charset="utf-8" onsubmit="emulAcceptCharset(this)">
-	  			<div class="row">  			
-	  				<div class="form-group col-md-4">
-	    				<label for="exampleFormControlInput1">이름</label>
+	  				<div class="form-group col-md-12" style="margin:15px 0 0 0">
+	    				<label for="exampleFormControlInput1"><strong>이름</strong></label>
 	    				<input type="text" class="form-control" id= "name" name="name" placeholder="홍길동">
 	  				</div>
-					<div class="form-group col-md-4">
-	    				<label for="exampleFormControlInput2">나이</label>
+					<div class="form-group col-md-12">
+	    				<label for="exampleFormControlInput2"><strong>나이</strong></label>
 	   					<input type="number" class="form-control" id="age" name="age" min="1" max="100" >
 	  				</div>
 	  				<div class="col-md-1"></div>
-	  				<div class="form-group col-md-3">
-					    <label for="exampleFormControlInput3">성별</label><br>
+	  				<div class="form-group col-md-10">
+					    <label for="exampleFormControlInput3"><strong>성별</strong></label><br>
 					    <input style="margin:0 5px 0 5px" type="radio" name="gender" value="100323"/>남
-						<input style="margin:0 5px 0 10px" type="radio" name="gender" value="100324"/>여
+						<input style="margin:0 5px 0 100px" type="radio" name="gender" value="100324"/>여
 					</div>
-	  			</div>
-				<div class="form-group">
-				    <label for="exampleFormControlInput4">학교</label>
+				<div class="form-group col-md-12">
+				    <label for="exampleFormControlInput4"><strong>학교</strong></label>
 				    <input type="text" class="form-control" id="school" name="school" placeholder="아형고 (X) 아형고등학교(O)">
 		  		</div>
-				<div class="form-group">
-				    <label for="exampleFormControlSelect5">종류 선택</label>
+				<div class="form-group col-md-12">
+				    <label for="exampleFormControlSelect5"><strong>종류 선택</strong></label>
 				    <select class="form-control" id="choice" name="choice">
 						<option value="null">=======선 택=======</option>
 						<option value="4" disabled>직업흥미검사(K)- 중학생</option>
@@ -87,7 +85,7 @@
 						<option value="23" disabled>진로성숙도검사 - 고등학생</option>
 				    </select>
 				</div>
-				<button class="btn btn-primary" style="margin:15px" id="btn" type="button">시작</button>
+				<button class="btn btn-primary col-md-5" style="margin:15px 0 15px 130px" id="btn" type="button">시작</button>
 			</form>
 		</div>
 	</div>
