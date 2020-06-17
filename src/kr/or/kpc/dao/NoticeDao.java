@@ -238,8 +238,6 @@ public class NoticeDao {
 			con = ConnLocator.getConnect();
 			StringBuffer sql = new StringBuffer();
 			sql.append("SELECT COUNT(*) FROM notice; ");
-			sql.append("");
-			sql.append("");
 			pstmt = con.prepareStatement(sql.toString());
 			
 			rs = pstmt.executeQuery();
@@ -262,5 +260,39 @@ public class NoticeDao {
 		}
 		
 		return count;
+	}
+	
+	public int getMaxNum() {
+		int max = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnLocator.getConnect();
+			StringBuffer sql = new StringBuffer();
+			sql.append("SELECT IFNULL(MAX(n_num)+1,1) FROM notice; ");
+			pstmt = con.prepareStatement(sql.toString());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				int index = 0;
+				max = rs.getInt(++index);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return max;
 	}
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="EUC-KR"%>
+<%@ page language="java" pageEncoding="utf-8"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,10 +26,10 @@
 	    <a class="navbar-brand" href="#">Hidden brand</a>
 	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">È¨ <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="#">í™ˆ <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">°øÁö»çÇ×</a>
+	        <a class="nav-link" href="#">ê³µì§€ì‚¬í•­</a>
 	      </li>
 	    </ul>
 	    <!--  
