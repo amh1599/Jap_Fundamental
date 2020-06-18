@@ -49,9 +49,15 @@
         	<li class="nav-item">
         		<a class="nav-link" href="/member/logout.jsp">[로그아웃]</a>
         	</li>
+        	<li class="nav-item">
+        		<a class="nav-link" href="/member/mypage_pwd.jsp">[마이페이지]</a>
+        	</li>
         	<%}else{ %>
         	<li class="nav-item">
         		<a class="nav-link" href="/member/login.jsp">로그인</span></a>
+        	</li>
+        	<li class="nav-item">
+        		<a class="nav-link" href="/member/join.jsp">회원가입</span></a>
         	</li>
         	<%} %>
         	</ul>
