@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import kr.or.kpc.Dto.NoticeDto;
 import kr.or.kpc.util.ConnLocator;
 
@@ -294,5 +297,94 @@ public class NoticeDao {
 		}
 		
 		return max;
+	}
+	
+	public String selectJson(int start, int len){
+		/*
+			{
+			"items" : [
+		 		{"num":1, "writer":"작성자1", "title":"제목1", "regdate":"2020....."},
+		 		{"num":2, "writer":"작성자2", "title":"제목2", "regdate":"2020....."},
+		 		{"num":3, "writer":"작성자3", "title":"제목3", "regdate":"2020....."},
+		 		......
+		 		]
+			}
+			
+			<items>
+				<item>
+					<num></num>
+					<writer></writer>
+					<title></title>
+					<regdate></regdate>
+				</item>
+				<item>
+					<num></num>
+					<writer></writer>
+					<title></title>
+					<regdate></regdate>
+				</item>
+				<item>
+					<num></num>
+					<writer></writer>
+					<title></title>
+					<regdate></regdate>
+				</item>
+			</items>
+		 */
+		
+		JSONObject obj = new JSONObject();
+		JSONArray array = new JSONArray();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnLocator.getConnect();
+			StringBuffer sql = new StringBuffer();
+			sql.append("SELECT n_num, n_writer, n_title, n_content, DATE_FORMAT(n_regdate,'%Y.%m.%d %h:%i') ");
+			sql.append("FROM notice ");
+			sql.append("ORDER BY n_num DESC ");
+			sql.append("LIMIT ?,?; ");
+			pstmt = con.prepareStatement(sql.toString());
+
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, len);
+
+			rs = pstmt.executeQuery();
+			JSONObject obj1;
+			while (rs.next()) {
+				int index = 0;
+				int num = rs.getInt(++index);
+				String writer = rs.getString(++index);
+				String title = rs.getString(++index);
+				String content = rs.getString(++index);
+				String regdate = rs.getString(++index);
+				
+				obj1 = new JSONObject();
+				obj1.put("num",String.valueOf(num));
+				obj1.put("writer",writer);
+				obj1.put("title",title);
+				obj1.put("regdate",regdate);
+				array.add(obj1);
+			}
+			obj.put("items",array);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return obj.toJSONString();
 	}
 }
